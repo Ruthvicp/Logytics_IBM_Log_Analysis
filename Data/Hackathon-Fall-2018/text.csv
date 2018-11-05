@@ -1,0 +1,80 @@
+elasticsearch service available,stdout,2018-11-01T06:50:41.159872103Z
+info: parsing config file is succeeded path=/fluentd/etc/fluent.conf,stdout,2018-11-01T06:50:45.362563321Z
+info: using configuration file: ROOT,stdout,2018-11-01T06:50:49.517571027Z
+source,stdout,2018-11-01T06:50:49.517765818Z
+@type systemd,stdout,2018-11-01T06:50:49.517777509Z
+@id input_systemd_icp,stdout,2018-11-01T06:50:49.517879509Z
+@log_level info,stdout,2018-11-01T06:50:49.517891829Z
+tag icp-audit,stdout,2018-11-01T06:50:49.517896779Z
+path /run/log/journal,stdout,2018-11-01T06:50:49.517901339Z
+matches  SYSLOG_IDENTIFIER: icp-audit,stdout,2018-11-01T06:50:49.517906629Z
+read_from_head true,stdout,2018-11-01T06:50:49.517912139Z
+storage,stdout,2018-11-01T06:50:49.517918359Z
+@type local,stdout,2018-11-01T06:50:49.517922909Z
+persistent true,stdout,2018-11-01T06:50:49.517927859Z
+path /icp-audit,stdout,2018-11-01T06:50:49.517933599Z
+/storage,stdout,2018-11-01T06:50:49.517963279Z
+entry,stdout,2018-11-01T06:50:49.517970859Z
+fields_strip_underscores true,stdout,2018-11-01T06:50:49.517975959Z
+fields_lowercase true,stdout,2018-11-01T06:50:49.517981129Z
+/entry,stdout,2018-11-01T06:50:49.517985419Z
+/source,stdout,2018-11-01T06:50:49.517990729Z
+source,stdout,2018-11-01T06:50:49.517995959Z
+@type tail,stdout,2018-11-01T06:50:49.518001019Z
+@log_level info,stdout,2018-11-01T06:50:49.518017979Z
+path /var/lib/icp/audit/*,stdout,2018-11-01T06:50:49.518025229Z
+exclude_path /var/lib/icp/audit/k8s_audit-*,stdout,2018-11-01T06:50:49.518030379Z
+pos_file /icp-audit/kube-audit.pos,stdout,2018-11-01T06:50:49.518035689Z
+tag kube-audit,stdout,2018-11-01T06:50:49.518040799Z
+read_from_head true,stdout,2018-11-01T06:50:49.518045459Z
+parse,stdout,2018-11-01T06:50:49.518050499Z
+@type json,stdout,2018-11-01T06:50:49.518055809Z
+/parse,stdout,2018-11-01T06:50:49.518060409Z
+/source,stdout,2018-11-01T06:50:49.518065499Z
+filter kube-audit,stdout,2018-11-01T06:50:49.518070419Z
+@type record_transformer,stdout,2018-11-01T06:50:49.51842516Z
+enable_ruby true,stdout,2018-11-01T06:50:49.51843704Z
+record,stdout,2018-11-01T06:50:49.51844248Z
+kubernetes.namespace $recordobjectRef.nil? ? one:(recordobjectRefamespace.nil? ? one:recordobjectRefamespace),stdout,2018-11-01T06:50:49.51844756Z
+/record,stdout,2018-11-01T06:50:49.51845366Z
+/filter,stdout,2018-11-01T06:50:49.51845874Z
+filter icp-audit,stdout,2018-11-01T06:50:49.5184854Z
+@type parser,stdout,2018-11-01T06:50:49.51849233Z
+format json,stdout,2018-11-01T06:50:49.51849767Z
+key_name message,stdout,2018-11-01T06:50:49.51850268Z
+reserve_data true,stdout,2018-11-01T06:50:49.51850798Z
+parse,stdout,2018-11-01T06:50:49.51851322Z
+@type json,stdout,2018-11-01T06:50:49.51852179Z
+/parse,stdout,2018-11-01T06:50:49.51852685Z
+/filter,stdout,2018-11-01T06:50:49.51853176Z
+filter icp-audit kube-audit,stdout,2018-11-01T06:50:49.51853694Z
+@type elasticsearch_genid,stdout,2018-11-01T06:50:49.5185423Z
+hash_id_key _hash,stdout,2018-11-01T06:50:49.51854727Z
+/filter,stdout,2018-11-01T06:50:49.5185526Z
+match icp-audit kube-audit,stdout,2018-11-01T06:50:49.5185575Z
+@type elasticsearch,stdout,2018-11-01T06:50:49.51856226Z
+@log_level info,stdout,2018-11-01T06:50:49.51856698Z
+type_name fluentd,stdout,2018-11-01T06:50:49.51857197Z
+hosts elasticsearch:9200,stdout,2018-11-01T06:50:49.518577Z
+id_key _hash,stdout,2018-11-01T06:50:49.51858159Z
+remove_keys _hash,stdout,2018-11-01T06:50:49.51858658Z
+logstash_format true,stdout,2018-11-01T06:50:49.51859159Z
+logstash_prefix audit,stdout,2018-11-01T06:50:49.51859615Z
+scheme https,stdout,2018-11-01T06:50:49.51860123Z
+ssl_version TLSv1_2,stdout,2018-11-01T06:50:49.51860593Z
+ca_file /fluentd/etc/tls/ca.crt,stdout,2018-11-01T06:50:49.51861084Z
+client_cert /fluentd/etc/tls/logstash.crt,stdout,2018-11-01T06:50:49.51861563Z
+client_key /fluentd/etc/tls/logstash.key,stdout,2018-11-01T06:50:49.51862076Z
+client_key_pass changeme,stdout,2018-11-01T06:50:49.51862545Z
+buffer,stdout,2018-11-01T06:50:49.51862999Z
+flush_thread_count 8,stdout,2018-11-01T06:50:49.51863498Z
+flush_interval 5s,stdout,2018-11-01T06:50:49.51864001Z
+chunk_limit_size 2M,stdout,2018-11-01T06:50:49.51864509Z
+queue_limit_length 32,stdout,2018-11-01T06:50:49.51864963Z
+retry_max_interval 30,stdout,2018-11-01T06:50:49.51865449Z
+retry_forever true,stdout,2018-11-01T06:50:49.51865968Z
+/buffer,stdout,2018-11-01T06:50:49.51866513Z
+/match,stdout,2018-11-01T06:50:49.51867018Z
+/ROOT,stdout,2018-11-01T06:50:49.5186749Z
+info: starting fluentd-1.2.2 pid=1 ruby=2.3.3,stdout,2018-11-01T06:50:49.51867957Z
+info: spawn command to main:  cmdline=/usr/bin/ruby2.3, -Eascii-8bit:ascii-8bit, /fluentd/vendor/bundle/ruby/2.3.0/bin/fluentd, -c, /fluentd/etc/fluent.conf, --gemfile, /fluentd/Gemfile, --under-supervisor,stdout,2018-11-01T06:50:49.51869016Z

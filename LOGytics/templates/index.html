@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+   <meta charset="UTF-8">
+    <title>{{t}}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{{ url_for('static',filename='assets/js/app.js')}}"></script>
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static',filename='assets/css/style.css')}}">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawVisualization);
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['INFO', 'NETWORK', 'ERROR','REPL','CONTROL','ERR','STORAGE','CRIT'],
+            [Math.log(114226),Math.log(66310),Math.log(47267),Math.log(161),Math.log(79),Math.log(71),Math.log(48),Math.log(6)]
+      ]);
+
+    var options = {
+      title : 'Error Data Visualization',
+      vAxis: {title: 'Count (Scaled to Log to the base 10)'},
+        hAxis: {
+          title: 'Error Category',
+          format: '',
+          viewWindow: {
+            min: [7, 30, 0],
+            max: [17, 30, 0]
+          }
+        },
+      seriesType: 'bars',
+      series: {5: {type: 'line'}}
+    };
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+  function theimage(){
+    var filename = document.getElementById('file-id').value;
+    document.getElementById('filePath').innerHTML = filename;
+}
+    </script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['table']});
+      google.charts.setOnLoadCallback(drawTable);
+
+      function drawTable() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Cluster-0');
+        data.addColumn('string', 'Cluster-1');
+        data.addColumn('string', 'Cluster-2');
+        data.addColumn('string', 'Cluster-3');
+        data.addColumn('string', 'Cluster-4')
+        data.addRows([
+          ['key', 'mariadb_lock', 'exists', 'aaa', 'aaaaa'],
+            ['ipsets', 'aaa', 'zyyxubdhqxga','elk','environment'],
+            ['aaaa', 'open', 'connections', 'connection', 'aaaaa'],
+            ['int_dataplane',
+ 'aaa',
+ 'zyyxubdhqxga',
+ 'election',
+ 'env_var_loader'],
+            ['health',
+ 'aaa',
+ 'election',
+ 'environment',
+ 'env_var_loader']
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+
+      }
+    </script>
+    <script src="src/jquery-bootstrap-modal-steps.js"></script>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+<style>
+body, html {
+    height: 100%;
+    font-family: "Inconsolata", sans-serif;
+}
+.bgimg {
+    background-position: center;
+    background-size: cover;
+    background-image: url("https://ak4.picdn.net/shutterstock/videos/19109194/thumb/1.jpg");
+    min-height: 75%;
+}
+.menu {
+    display: none;
+}
+</style>
+</head>
+<body>
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black"><b>LOGytics</b></a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block w3-black"><b>Prediction</b></a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#menu" class="w3-button w3-block w3-black"><b>Analytics</b></a>
+    </div>
+    <div class="w3-col s3">
+        <a href="./modelview" class="w3-button w3-block w3-black"><b>Our Model</b></a>
+    </div>
+  </div>
+</div>
+<header class="bgimg w3-display-container" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag"></span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white" style="font-size:80px">LOGytics<br> </span>
+      <span class="w3-text-white" style="font-size:20px">An Error Prediction system built on Neural Network | LSTM | RNN<br> </span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-white"></span>
+  </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-blue w3-large" style="padding-left: 2%;padding-right: 2%;">
+
+<!-- About Container -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-32"><span class="w3-wide">UPLOAD FILE</span></h5>
+     <form action = "http://localhost:5000/uploader" method = "POST"
+         enctype = "multipart/form-data">
+            <div class="logupload" style="padding-left: 45%;">
+
+                <div class="form-group">
+                    <label for="file-id" class="custom-file-upload">
+                   <span class="glyphicon glyphicon-upload" style="border: none;"></span>
+                </label>
+   <input id="file-id" type="file" onchange="theimage();" name="file"/>
+                <input type = "submit" class="btn btn-success" value="Submit"/>
+                </div>
+
+                <span id="filePath"></span>
+            </div>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+      </form>
+  </div>
+</div>
+  <div class="row">
+             <div class="col-sm-6">
+                <label style="padding-left: 40%; font-family:Arial,sans-serif;">Model Summary</label>
+                <div class="form-group" style=" border: solid white;border-radius: 15px;height: 400px;background-color: white">
+                    <pre>{{summary}}</pre>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label style="padding-left: 40%;font-family:Arial,sans-serif;">Major Error - Word Cloud</label>
+                <div class="form-group" style=" border: solid white;border-radius: 15px;">
+
+                    <div id="myChart"></div>
+                    <script>
+                            var myConfig = {
+                                type: 'wordcloud',
+                                options: {
+                                    text: 'Key_already_exists Key_already_exists Key_already_exists Key_already_exists pod_has_unbound_PersistentVolumeClaims pod_has_unbound_PersistentVolumeClaims Connection_refused connection_Connection_refused connection Connection_refused connection reset_by_peer scheduling_zen_zookeeper-a scheduling_zen_zookeeper-a scheduling_zen_zookeeper-a scheduling_zen_zookeeper-a scheduling_zen_solr-a scheduling_kube-system mongo_deploy-a-afaafffaaa-mpcdg mongo_deploy-a-afaafffaaa-mpcdg mongo_deploy-a-afaafffaaa-mpcdg proxying_data_from_backend_to_client '
+                                }
+                            };
+                            zingchart.render({
+                                id: 'myChart',
+                                data: myConfig,
+                                height: 400,
+                                width: '100%'
+                            });
+                    </script>
+                </div>
+            </div>
+        </div>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card" style="border: solid white;border-radius: 15px;">
+      <div class="card-body" style="color: black;">
+        <h5 class="card-title"><b>Demo Application</b></h5>
+        <p class="card-text">This acts as any web application with some purpose and also generating log statement on some action</p>
+        <a href="./withoutmodel" class="btn btn-primary">Try Without Model</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card" style="border: solid white;border-radius: 15px;">
+      <div class="card-body" style="color:black;">
+          <h5 class="card-title"><b>Demo Application (Using Error prediction)</b></h5>
+        <p class="card-text">The same application whose current logs will be sent to a neural network to predict the future error in advance</p>
+        <a href="/withmodel" class="btn btn-primary">Try With Model</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Menu Container -->
+
+<br>
+    <div style="padding:5%;" id="menu">
+
+<div id="chart_div" style="width: 100%; height: 500px;border: solid white;border-radius: 15px;"></div>
+
+    </div>
+<div style="padding:5%;" id="menu">
+<div class="row">
+    <div class="col-sm-6">
+        <h3 ><b>Clustering of Log data</b></h3>
+        <img src="../static/images/graph_clustering.png" class="img-rounded" alt="Graph" style="width: 100%;height: 100%;">
+    </div>
+    <div class="col-sm-6">
+        <div id="table_div" style="color: black;"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>
