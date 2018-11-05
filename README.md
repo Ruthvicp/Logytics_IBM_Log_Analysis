@@ -44,8 +44,8 @@ out of all the models, sentence model (3) has given better and faster results
 ---
 
 ## Flask Web Page
-1. run logytics_run.py to start Flask server
-2. It will load index.html which is home page
+1. run [logytics_run.py](https://github.com/Ruthvicp/Logytics_IBM_Log_Analysis/blob/master/LOGytics/loglytics_run.py) to start Flask server
+2. It will load [index.html](https://github.com/Ruthvicp/Logytics_IBM_Log_Analysis/blob/master/LOGytics/templates/index.html) which is home page
 It has 4 sections which describe - Logytics, Prediction mechanism, Analytics & model visualization
 3. In the demo -  we will load the trained model and send the log file to model in order to predict the future log
 
