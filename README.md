@@ -5,6 +5,8 @@ In this project, we pursued the use case to build an unsupervised model to ident
 To accomplish this we used Python, Spark, and Flask.
 
 ---
+## Youtube Demo - https://youtu.be/5pVbRnonJ7c
+## Presentation - https://app.box.com/s/hnsn92no1hz6ujyntyn69yg3ruyspiiy
 
 ## Data Processing
 
