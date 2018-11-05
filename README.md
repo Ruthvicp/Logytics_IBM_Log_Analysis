@@ -63,5 +63,7 @@ convert the given documents into vectors and perform clustering on the data.
 This given us clusters of tags present in the log file. 
 The last section in the index.html displays the clustering and tabulates the results
 
-
 ---
+
+## Prediction Result
+![](https://github.com/Ruthvicp/Logytics_IBM_Log_Analysis/raw/master/results.JPG)
