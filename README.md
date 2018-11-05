@@ -48,6 +48,11 @@ out of all the models, sentence model (3) has given better and faster results
 | Sentence generation | 2 hours      |    10 |
 | word generation on bidirectional LSTM | 4 hours      |    5 |
 
+
+### How does an LSTM work
+
+![](https://github.com/Ruthvicp/Logytics_IBM_Log_Analysis/blob/master/LSTM_flow.gif)
+
 ---
 
 ## Flask Web Page
