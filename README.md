@@ -10,6 +10,7 @@ To accomplish this we used Python, Spark, and Flask.
 
 ---
 ## Architecture
+![](https://github.com/Ruthvicp/Logytics_IBM_Log_Analysis/raw/master/architecture.JPG)
 
 ## Data Processing
 
