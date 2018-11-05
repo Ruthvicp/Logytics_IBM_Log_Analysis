@@ -1,4 +1,4 @@
-﻿# Logytics - IBM Log Analysis Hackathon Use case
+﻿# LOGytics - IBM Log Analysis Hackathon Use case
 
 In this project, we pursued the use case to build an unsupervised model to identify and correlate warnings and error messages.
 
@@ -9,7 +9,6 @@ To accomplish this we used Python, Spark, Keras, LSTM, K-mean Clustering and Fla
 ### Cameron LEcUyer
 ### Sai charan kottapalli
 ### Aravind sheri
-
 
 ---
 ### Youtube Demo - https://youtu.be/5pVbRnonJ7c
