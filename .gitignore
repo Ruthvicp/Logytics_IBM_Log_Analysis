@@ -1,0 +1,8 @@
+
+.idea
+Data/Hackathon-Fall-2018/venv/Scripts/
+Data/Hackathon-Fall-2018/venv/Lib/
+Data/Stats/project/
+Data/Stats/target/
+*.data
+*.crc
